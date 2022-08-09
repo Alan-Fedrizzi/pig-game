@@ -1,4 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+// breakpoints
+$bp-largest: 68.75em; // 1100px
+$bp-large: 52em; // 832px
+$bp-medium: 40em; // 640px
+$bp-small: 25em; // 400px
+$bp-height: 45.75em; // 732px
+
 * {
   margin: 0;
   padding: 0;
@@ -8,15 +16,14 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-}
-@media only screen and (max-width: 52em) {
-  html {
-    font-size: 56.25%;
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 56.25%; // 9px
   }
 }
 
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 400;
   height: 100vh;
   color: #333;
@@ -24,9 +31,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-@media only screen and (max-height: 45.75em) {
-  body {
+
+  @media only screen and (max-height: $bp-height) {
     height: auto;
     margin: 1rem auto;
   }
@@ -38,27 +44,23 @@ main {
   width: 100rem;
   height: 60rem;
   background-color: rgba(255, 255, 255, 0.35);
-  -webkit-backdrop-filter: blur(200px);
-          backdrop-filter: blur(200px);
+  backdrop-filter: blur(200px);
   filter: blur();
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
   border-radius: 9px;
   overflow: hidden;
   display: flex;
-}
-@media only screen and (max-width: 68.75em) {
-  main {
+
+  @media only screen and (max-width: $bp-largest) {
     width: 90%;
   }
-}
-@media only screen and (max-width: 40em) {
-  main {
+
+  @media only screen and (max-width: $bp-medium) {
     height: 90%;
     flex-direction: column;
   }
-}
-@media only screen and (max-height: 45.75em) {
-  main {
+
+  @media only screen and (max-height: $bp-height) {
     height: auto;
   }
 }
@@ -70,31 +72,28 @@ main {
   flex-direction: column;
   align-items: center;
   transition: all 0.75s;
-}
-@media only screen and (max-width: 52em) {
-  .player {
+
+  @media only screen and (max-width: $bp-large) {
     padding: 9rem 7rem;
   }
-}
-@media only screen and (max-width: 40em) {
-  .player {
+
+  @media only screen and (max-width: $bp-medium) {
     padding: 4rem;
-  }
-}
-@media only screen and (max-width: 40em) and (max-height: 45.75em) {
-  .player {
-    padding: 2rem;
+
+    @media only screen and (max-height: $bp-height) {
+      padding: 2rem;
+    }
   }
 }
 
-@media only screen and (max-width: 40em) {
-  .player--0 {
+.player--0 {
+  @media only screen and (max-width: $bp-medium) {
     padding-bottom: 10rem;
   }
 }
 
-@media only screen and (max-width: 40em) {
-  .player--1 {
+.player--1 {
+  @media only screen and (max-width: $bp-medium) {
     padding-top: 10rem;
   }
 }
@@ -108,14 +107,12 @@ main {
   word-spacing: 2px;
   font-weight: 300;
   margin-bottom: 1rem;
-}
-@media only screen and (max-width: 52em) {
-  .name {
+
+  @media only screen and (max-width: $bp-large) {
     font-size: 3.5rem;
   }
-}
-@media only screen and (max-width: 40em) {
-  .name {
+
+  @media only screen and (max-width: $bp-medium) {
     font-size: 3rem;
   }
 }
@@ -125,24 +122,26 @@ main {
   font-weight: 300;
   color: #c7365f;
   margin-bottom: auto;
-}
-@media only screen and (max-width: 40em) {
-  .score {
+
+  @media only screen and (max-width: $bp-medium) {
     font-size: 5rem;
   }
 }
 
 .player--active {
   background-color: rgba(255, 255, 255, 0.4);
-}
-.player--active .name {
-  font-weight: 700;
-}
-.player--active .score {
-  font-weight: 400;
-}
-.player--active .current {
-  opacity: 1;
+
+  .name {
+    font-weight: 700;
+  }
+
+  .score {
+    font-weight: 400;
+  }
+
+  .current {
+    opacity: 1;
+  }
 }
 
 .current {
@@ -154,9 +153,8 @@ main {
   padding: 2rem;
   text-align: center;
   transition: all 0.75s;
-}
-@media only screen and (max-width: 40em) {
-  .current {
+
+  @media only screen and (max-width: $bp-medium) {
     padding: 1.5rem;
   }
 }
@@ -166,18 +164,16 @@ main {
   margin-bottom: 1rem;
   font-size: 1.7rem;
   color: #ddd;
-}
-@media only screen and (max-width: 40em) {
-  .current-label {
+
+  @media only screen and (max-width: $bp-medium) {
     font-size: 1.6rem;
   }
 }
 
 .current-score {
   font-size: 3.5rem;
-}
-@media only screen and (max-width: 40em) {
-  .current-score {
+
+  @media only screen and (max-width: $bp-medium) {
     font-size: 3rem;
   }
 }
@@ -196,16 +192,16 @@ main {
   cursor: pointer;
   font-weight: 400;
   transition: all 0.2s;
+
   background-color: white;
   background-color: rgba(255, 255, 255, 0.6);
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
   padding: 0.7rem 2.5rem;
   border-radius: 50rem;
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
-}
-@media only screen and (max-width: 25em) {
-  .btn {
+
+  @media only screen and (max-width: $bp-small) {
     font-size: 1.6rem;
     padding: 0.5rem 1.5rem;
   }
@@ -219,9 +215,8 @@ main {
 
 .btn--new {
   top: 4rem;
-}
-@media only screen and (max-width: 40em) {
-  .btn--new {
+
+  @media only screen and (max-width: $bp-medium) {
     top: 42%;
     left: 30%;
     transform: translate(-50%, -50%);
@@ -230,14 +225,12 @@ main {
 
 .btn--roll {
   top: 39.3rem;
-}
-@media only screen and (max-height: 45.75em) {
-  .btn--roll {
+
+  @media only screen and (max-height: $bp-height) {
     top: 30rem;
   }
-}
-@media only screen and (max-width: 40em) {
-  .btn--roll {
+
+  @media only screen and (max-width: $bp-medium) {
     top: 50%;
     left: 30%;
     transform: translate(-50%, -50%);
@@ -246,14 +239,12 @@ main {
 
 .btn--hold {
   top: 46.1rem;
-}
-@media only screen and (max-height: 45.75em) {
-  .btn--hold {
+
+  @media only screen and (max-height: $bp-height) {
     top: 36rem;
   }
-}
-@media only screen and (max-width: 40em) {
-  .btn--hold {
+
+  @media only screen and (max-width: $bp-medium) {
     top: 58%;
     left: 30%;
     transform: translate(-50%, -50%);
@@ -277,16 +268,14 @@ main {
   transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
-}
-@media only screen and (max-width: 40em) {
-  .dice {
+
+  @media only screen and (max-width: $bp-medium) {
     top: 50%;
     left: 78%;
     transform: translate(-50%, -50%);
   }
-}
-@media only screen and (max-width: 25em) {
-  .dice {
+
+  @media only screen and (max-width: $bp-small) {
     height: 9rem;
   }
 }
@@ -303,4 +292,4 @@ main {
 /* hidden */
 .hidden {
   display: none;
-}/*# sourceMappingURL=style.css.map */
+}
